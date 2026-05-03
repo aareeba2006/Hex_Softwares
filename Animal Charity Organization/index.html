@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Paws of Hope — Animal Charity</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="script.js"></script>
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div id="cursor"></div>
+
+<!-- BACK TO TOP -->
+<button id="btt" aria-label="Back to top">↑</button>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo"><span class="paw">🐾</span> Shelter <span> Hearts</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#mission">Mission</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#stories">Stories</a></li>
+    <li><a href="#volunteer">Volunteer</a></li>
+    <li><a href="#donate" class="nav-donate-btn">Donate</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-shapes">
+    <div class="shape-circle"></div>
+    <div class="shape-circle"></div>
+  </div>
+
+  <div class="hero-text">
+    <div class="hero-tag">🌿 Est. 2009 · Non-Profit Org</div>
+    <h1 class="hero-h1">Where every creature finds <em>compassion, care &</em> a home.</h1>
+    <p class="hero-sub">Shelter Hearts rescues, rehabilitates, and rehomes animals in need. We believe every creature deserves safety, care, and a family to call their own.</p>
+    <div class="hero-cta">
+      <a href="#donate" class="btn-primary">❤️ Donate Now</a>
+      <a href="#programs" class="btn-secondary">Our Programs →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-num" data-count="18400">0</span><span class="stat-label">Animals Rescued</span></div>
+      <div class="stat-item"><span class="stat-num" data-count="97">0</span><span class="stat-label">% Adoption Rate</span></div>
+      <div class="stat-item"><span class="stat-num" data-count="340">0</span><span class="stat-label">Volunteers</span></div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-img-frame">🐕</div>
+    <div class="floating-badge">
+      <span class="badge-icon">🏥</span>
+      <div><strong>Vet Care</strong><br><small>Full medical support</small></div>
+    </div>
+    <div class="floating-badge">
+      <span class="badge-icon">🏠</span>
+      <div><strong>Found Home</strong><br><small>5 animals today!</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MISSION ── -->
+<section id="mission">
+  <div class="reveal">
+    <span class="section-tag">Our Mission</span>
+    <h2 class="section-title">Compassion in <em>action</em>,<br>every single day.</h2>
+    <p class="section-sub">We operate with a simple belief — no animal should suffer from neglect or abandonment. Our multi-pronged approach ensures every creature in our care thrives.</p>
+    <br><br>
+    <a href="#donate" class="btn-primary">Support the Mission</a>
+  </div>
+  <div class="mission-card-grid reveal" style="transition-delay:.15s">
+    <div class="mission-card">
+      <div class="mission-icon">🐾</div>
+      <h3>Rescue Operations</h3>
+      <p>24/7 emergency rescue for stray, abused, and abandoned animals across the region.</p>
+    </div>
+    <div class="mission-card">
+      <div class="mission-icon">💊</div>
+      <h3>Veterinary Care</h3>
+      <p>Full medical rehabilitation — surgery, vaccination, and ongoing treatment for every animal.</p>
+    </div>
+    <div class="mission-card">
+      <div class="mission-icon">🏡</div>
+      <h3>Foster Network</h3>
+      <p>A community of 200+ foster families providing safe temporary homes while we find forever families.</p>
+    </div>
+    <div class="mission-card">
+      <div class="mission-icon">📚</div>
+      <h3>Education</h3>
+      <p>School programs and community workshops promoting responsible pet ownership and kindness.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROGRAMS ── -->
+<section id="programs">
+  <div class="programs-header reveal">
+    <span class="section-tag">What We Do</span>
+    <h2 class="section-title">Programs that <em>transform</em> lives</h2>
+    <p class="section-sub">From abandoned shelters to forever homes — our programs cover every stage of an animal's journey to safety and happiness.</p>
+  </div>
+  <div class="programs-grid">
+    <div class="program-card reveal" style="transition-delay:.1s">
+      <div class="program-thumb" style="background:linear-gradient(135deg,#fce8d3,#f4c97a)">🐕</div>
+      <div class="program-body">
+        <h3>Dog Rescue & Rehab</h3>
+        <p>From streets to shelters, we nurse injured dogs back to health and match them with loving families through our thorough adoption process.</p>
+        <span class="program-pill" style="background:#fff3e0;color:#c96a45">Active Program</span>
+      </div>
+    </div>
+    <div class="program-card reveal" style="transition-delay:.2s">
+      <div class="program-thumb" style="background:linear-gradient(135deg,#e8f0e8,#a8c5aa)">🐈</div>
+      <div class="program-body">
+        <h3>Cat Colony Care</h3>
+        <p>TNR (Trap-Neuter-Return) for feral colonies, combined with socialization programs to help cats find comfortable indoor homes.</p>
+        <span class="program-pill" style="background:#e8f5e9;color:#4a8f4e">Active Program</span>
+      </div>
+    </div>
+    <div class="program-card reveal" style="transition-delay:.3s">
+      <div class="program-thumb" style="background:linear-gradient(135deg,#e8e8f5,#b0aed0)">🐇</div>
+      <div class="program-body">
+        <h3>Small Animal Sanctuary</h3>
+        <p>Rabbits, hamsters, birds, and reptiles all find safe harbour in our dedicated small-animal wing staffed by specialist carers.</p>
+        <span class="program-pill" style="background:#ede7f6;color:#6a4fa0">Growing Program</span>
+      </div>
+    </div>
+    <div class="program-card reveal" style="transition-delay:.1s">
+      <div class="program-thumb" style="background:linear-gradient(135deg,#fde8e8,#f4aaaa)">🐴</div>
+      <div class="program-body">
+        <h3>Large Animal Rescue</h3>
+        <p>Working alongside farmers and authorities to rescue horses, donkeys, and farm animals from neglect or disaster situations.</p>
+        <span class="program-pill" style="background:#fce4ec;color:#c62828">Expanding</span>
+      </div>
+    </div>
+    <div class="program-card reveal" style="transition-delay:.2s">
+      <div class="program-thumb" style="background:linear-gradient(135deg,#e3f2fd,#90caf9)">🦅</div>
+      <div class="program-body">
+        <h3>Wildlife Rehabilitation</h3>
+        <p>Partnering with conservation groups to rescue injured wildlife and release them back into protected natural habitats.</p>
+        <span class="program-pill" style="background:#e3f2fd;color:#1565c0">Conservation</span>
+      </div>
+    </div>
+    <div class="program-card reveal" style="transition-delay:.3s">
+      <div class="program-thumb" style="background:linear-gradient(135deg,#f5f5e8,#d4d07a)">🧑‍🤝‍🧑</div>
+      <div class="program-body">
+        <h3>Therapy Animal Program</h3>
+        <p>Training rescued animals as certified therapy companions for hospitals, schools, and care homes — healing humans too.</p>
+        <span class="program-pill" style="background:#fffde7;color:#827717">Flagship</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── IMPACT ── -->
+<section id="impact">
+  <div class="impact-inner">
+    <div class="reveal">
+      <span class="section-tag" style="color:var(--amber-light)">Our Impact</span>
+      <h2 class="section-title" style="color:#fff">Numbers that <em>matter</em></h2>
+      <p class="section-sub">Every donation, every volunteer hour, and every adoption creates a ripple of change we measure with pride.</p>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-box reveal" style="transition-delay:.05s">
+        <div class="impact-icon">🐾</div>
+        <span class="impact-num" data-count="18400">0</span>
+        <p class="impact-desc">Animals rescued since 2009</p>
+      </div>
+      <div class="impact-box reveal" style="transition-delay:.1s">
+        <div class="impact-icon">🏠</div>
+        <span class="impact-num" data-count="15200">0</span>
+        <p class="impact-desc">Successful adoptions completed</p>
+      </div>
+      <div class="impact-box reveal" style="transition-delay:.15s">
+        <div class="impact-icon">💉</div>
+        <span class="impact-num" data-count="42000">0</span>
+        <p class="impact-desc">Veterinary treatments provided</p>
+      </div>
+      <div class="impact-box reveal" style="transition-delay:.2s">
+        <div class="impact-icon">🤝</div>
+        <span class="impact-num" data-count="340">0</span>
+        <p class="impact-desc">Active volunteers & fosters</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STORIES ── -->
+<section id="stories">
+  <div class="stories-header reveal">
+    <span class="section-tag">Success Stories</span>
+    <h2 class="section-title">Tails with <em>happy</em> endings</h2>
+    <p class="section-sub">Real people, real animals, real transformations. Here are just a few of the thousands of stories we cherish.</p>
+  </div>
+  <div class="stories-grid">
+    <div class="story-card reveal" style="transition-delay:.1s">
+      <div class="story-thumb" style="background:linear-gradient(135deg,#fce8d3,#f4c97a)">🐕</div>
+      <div class="story-body">
+        <p class="story-quote">"Rocky came to us with three broken legs and zero trust in humans.
+Today he runs circles around our kids and sleeps in our bed every night."</p>
+        <div class="story-meta">
+          <div class="story-avatar">👩</div>
+          <div>
+            <div class="story-name">Hira Baig</div>
+            <div class="story-role">Adopted Rocky in 2024</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="story-card reveal" style="transition-delay:.2s">
+      <div class="story-thumb" style="background:linear-gradient(135deg,#e8f0e8,#a8c5aa)">🐈</div>
+      <div class="story-body">
+        <p class="story-quote">"Whiskers was feral when rescued. The team's patience and expert care turned her into the most affectionate companion. I can't imagine life without her."</p>
+        <div class="story-meta">
+          <div class="story-avatar">👨</div>
+          <div>
+            <div class="story-name">James & Priya Kowalski</div>
+            <div class="story-role">Adopted Whiskers in 2024</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="story-card reveal" style="transition-delay:.3s">
+      <div class="story-thumb" style="background:linear-gradient(135deg,#fde8e8,#f4aaaa)">🐴</div>
+      <div class="story-body">
+        <p class="story-quote">"Storm arrived with broken trust and broken bones. Watching him gallop free on our farm — I never thought a horse could cry tears of joy, but I did."</p>
+        <div class="story-meta">
+          <div class="story-avatar">👩‍🌾</div>
+          <div>
+            <div class="story-name">Margaret Liu</div>
+            <div class="story-role">Adopted Storm in 2022</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DONATE ── -->
+<section id="donate">
+  <div class="donate-inner">
+    <div class="reveal">
+      <span class="section-tag">Make a Difference</span>
+      <h2 class="section-title">Your gift gives <em>hope</em></h2>
+      <p class="section-sub">100% of your donation goes directly to animal care, rescue operations, and medical treatment. No animal left behind.</p>
+    </div>
+
+    <div class="progress-bar-wrap reveal">
+      <div class="progress-label">
+        <span>🎯 Annual Goal Progress</span>
+        <span><strong>$74,000</strong> raised of $100,000</span>
+      </div>
+      <div class="progress-bg"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+
+    <div class="donate-amounts reveal">
+      <button class="amt-btn" onclick="selectAmount(10, this)">$10</button>
+      <button class="amt-btn active" onclick="selectAmount(25, this)">$25</button>
+      <button class="amt-btn" onclick="selectAmount(50, this)">$50</button>
+      <button class="amt-btn" onclick="selectAmount(100, this)">$100</button>
+      <button class="amt-btn" onclick="selectAmount(250, this)">$250</button>
+    </div>
+
+    <div id="donateImpact" class="donate-impact reveal">
+      💙 $25 provides food and shelter for one animal for a week.
+    </div>
+
+    <div class="donate-form-row reveal">
+      <input type="text" class="donate-input" placeholder="Your full name" />
+      <input type="email" class="donate-input" placeholder="Email address" />
+    </div>
+    <div class="reveal">
+      <button class="btn-primary" style="font-size:1.1rem;padding:1rem 2.8rem" onclick="handleDonate()">
+        ❤️ Donate $<span id="donateAmt">25</span> Now
+      </button>
+    </div>
+    <p style="margin-top:1.2rem;font-size:.82rem;color:var(--text-light)" class="reveal">
+      🔒 Secure payment · Tax-deductible · Cancel anytime · 501(c)(3) registered
+    </p>
+  </div>
+</section>
+
+<!-- ── VOLUNTEER ── -->
+<section id="volunteer">
+  <div class="reveal">
+    <span class="section-tag">Get Involved</span>
+    <h2 class="section-title">Volunteer &<br><em>change</em> everything</h2>
+    <p class="section-sub">Join our incredible community of animal advocates. Whether you have an hour a week or full days to give — every moment matters.</p>
+    <br><br>
+    <a href="mailto:volunteer@pawsofhope.org" class="btn-primary">Join as Volunteer</a>
+    &nbsp;&nbsp;
+    <a href="#" class="btn-secondary" style="margin-top:.5rem">Foster an Animal</a>
+  </div>
+  <div class="volunteer-visual reveal" style="transition-delay:.15s">
+    <div class="vol-item">
+      <div class="vol-icon">🏥</div>
+      <div class="vol-text">
+        <h4>Shelter Support</h4>
+        <p>Help with feeding, cleaning, and enrichment activities for our shelter animals.</p>
+      </div>
+    </div>
+    <div class="vol-item">
+      <div class="vol-icon">🚗</div>
+      <div class="vol-text">
+        <h4>Transport Network</h4>
+        <p>Drive animals to vet appointments, foster homes, or adoption events.</p>
+      </div>
+    </div>
+    <div class="vol-item">
+      <div class="vol-icon">📸</div>
+      <div class="vol-text">
+        <h4>Photography & Social</h4>
+        <p>Capture portraits that help animals get adopted faster — it really works!</p>
+      </div>
+    </div>
+    <div class="vol-item">
+      <div class="vol-icon">📚</div>
+      <div class="vol-text">
+        <h4>Community Education</h4>
+        <p>Deliver school and community workshops about animal welfare and kindness.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#hero" class="nav-logo"><span class="paw">🐾</span> Paws of <span>Hope</span></a>
+      <p>Rescuing, rehabilitating, and rehoming animals since 2009. A registered 501(c)(3) non-profit organisation dedicated to animal welfare.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn">f</a>
+        <a href="#" class="social-btn">in</a>
+        <a href="#" class="social-btn">𝕏</a>
+        <a href="#" class="social-btn">▶</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="#">Dog Rescue</a></li>
+        <li><a href="#">Cat Colony Care</a></li>
+        <li><a href="#">Small Animals</a></li>
+        <li><a href="#">Wildlife Rehab</a></li>
+        <li><a href="#">Therapy Animals</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Get Involved</h4>
+      <ul>
+        <li><a href="#donate">Donate</a></li>
+        <li><a href="#volunteer">Volunteer</a></li>
+        <li><a href="#">Foster</a></li>
+        <li><a href="#">Adopt</a></li>
+        <li><a href="#">Sponsor</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:hello@pawsofhope.org">hello@pawsofhope.org</a></li>
+        <li><a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+        <li><a href="#">123 Shelter Lane</a></li>
+        <li><a href="#">Springfield, IL 62701</a></li>
+        <li><a href="#">Emergency: 24/7 Hotline</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Paws of Hope · All rights reserved · Registered Non-Profit 501(c)(3) · <a href="#" style="color:var(--amber);text-decoration:none">Privacy Policy</a> · <a href="#" style="color:var(--amber);text-decoration:none">Terms</a></p>
+  </div>
+</footer>
+  <script src="script.js"></script>
+</body>
+</html>
