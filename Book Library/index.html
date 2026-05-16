@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+            rel="stylesheet">
+</head>
+
+<body>
+//SIDEBAR
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    <h1>📚 Bibliotheca</h1>
+    <p>Personal Library</p>
+  </div>
+
+  <div class="sidebar-stats">
+    <div class="stat-box"><div class="num" id="stat-total">0</div><div class="label">Books</div></div>
+    <div class="stat-box"><div class="num" id="stat-lent">0</div><div class="label">On Loan</div></div>
+    <div class="stat-box"><div class="num" id="stat-reading">0</div><div class="label">Reading</div></div>
+    <div class="stat-box"><div class="num" id="stat-genres">0</div><div class="label">Genres</div></div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">Library</div>
+    <button class="nav-item active" onclick="showPage('books')">
+      <span class="icon">📖</span> All Books
+    </button>
+    <button class="nav-item" onclick="showPage('history')">
+      <span class="icon">🕓</span> Borrow History
+    </button>
+
+    <div class="nav-section-label">Browse By Genre</div>
+    <button class="nav-item" onclick="filterByCategory('Fiction')">
+      <span class="icon">🌟</span> Fiction
+    </button>
+    <button class="nav-item" onclick="filterByCategory('Non-Fiction')">
+      <span class="icon">🧠</span> Non-Fiction
+    </button>
+    <button class="nav-item" onclick="filterByCategory('Science')">
+      <span class="icon">🔬</span> Science
+    </button>
+    <button class="nav-item" onclick="filterByCategory('History')">
+      <span class="icon">🏛️</span> History
+    </button>
+    <button class="nav-item" onclick="filterByCategory('Biography')">
+      <span class="icon">👤</span> Biography
+    </button>
+  </nav>
+
+  <div class="sidebar-footer">
+    <button class="add-book-btn" onclick="openAddModal()">+ Add New Book</button>
+  </div>
+</aside>
+
+
+// MAIN
+<main class="main">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="Search by title, author, or genre…" oninput="handleSearch()">
+    </div>
+    <div class="topbar-actions">
+      <select class="sort-select" onchange="handleSort(this.value)">
+        <option value="title">Sort: Title</option>
+        <option value="author">Sort: Author</option>
+        <option value="year">Sort: Year</option>
+        <option value="rating">Sort: Rating</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- ── BOOKS PAGE ── -->
+    <section class="page-section active" id="page-books">
+      <div class="page-header">
+        <div>
+          <h2>My <span>Library</span></h2>
+          <p class="result-count" id="result-count"></p>
+        </div>
+      </div>
+      <div class="filter-strip">
+        <button class="filter-chip active" onclick="setFilter('all',this)">All</button>
+        <button class="filter-chip" onclick="setFilter('available',this)">✅ Available</button>
+        <button class="filter-chip" onclick="setFilter('reading',this)">📖 Reading</button>
+        <button class="filter-chip" onclick="setFilter('lent',this)">📤 On Loan</button>
+      </div>
+      <div class="books-grid" id="booksGrid"></div>
+    </section>
+
+    <!-- ── HISTORY PAGE ── -->
+    <section class="page-section" id="page-history">
+      <div class="page-header">
+        <div>
+          <h2>Borrow <span>History</span></h2>
+          <p class="result-count" id="history-count"></p>
+        </div>
+      </div>
+      <div class="history-table" id="historyTable"></div>
+    </section>
+
+  </div><!-- /content -->
+</main>
+
+// ADD / EDIT MODAL
+<div class="modal-overlay" id="addModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="modalTitle">Add New Book</h3>
+      <button class="modal-close" onclick="closeModal('addModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="editingId">
+      <input type="hidden" id="f-cover">
+
+      <!-- COVER PHOTO UPLOAD -->
+      <div class="form-group">
+        <label>📷 Book Cover Photo</label>
+        <div class="cover-upload-area" id="coverUploadArea">
+          <input type="file" id="coverFileInput" accept="image/*" onchange="handleCoverUpload(event)">
+          <div class="upload-placeholder" id="uploadPlaceholder">
+            <div class="upload-icon">🖼️</div>
+            <div class="upload-text">Click to upload a cover image</div>
+            <div class="upload-hint">JPG, PNG, WEBP — from your device</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" style="grid-column:1/-1">
+        <label>Book Title *</label>
+        <input type="text" id="f-title" placeholder="e.g. The Great Gatsby">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Author *</label>
+          <input type="text" id="f-author" placeholder="Author name">
+        </div>
+        <div class="form-group">
+          <label>Year Published</label>
+          <input type="number" id="f-year" placeholder="e.g. 1925" min="1000" max="2099">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Genre / Category</label>
+          <select id="f-genre">
+            <option value="Fiction">Fiction</option>
+            <option value="Non-Fiction">Non-Fiction</option>
+            <option value="Science">Science</option>
+            <option value="History">History</option>
+            <option value="Biography">Biography</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Self-Help">Self-Help</option>
+            <option value="Technology">Technology</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Rating (1–5)</label>
+          <input type="number" id="f-rating" placeholder="4" min="1" max="5">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Status</label>
+          <select id="f-status">
+            <option value="available">Available</option>
+            <option value="reading">Currently Reading</option>
+            <option value="lent">Lent Out</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>ISBN (optional)</label>
+          <input type="text" id="f-isbn" placeholder="978-…">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Notes</label>
+        <textarea id="f-notes" placeholder="Personal notes, thoughts…"></textarea>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('addModal')">Cancel</button>
+        <button class="btn-save" onclick="saveBook()">Save Book</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     DETAIL MODAL
+════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="detailModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Book Details</h3>
+      <button class="modal-close" onclick="closeModal('detailModal')">✕</button>
+    </div>
+    <div class="modal-body" id="detailBody"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     LEND MODAL
+════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="lendModal">
+  <div class="modal" style="width:420px">
+    <div class="modal-header">
+      <h3>📤 Lend Book</h3>
+      <button class="modal-close" onclick="closeModal('lendModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="lend-book-title" id="lendBookTitle"></div>
+      <input type="hidden" id="lendBookId">
+      <div class="form-group">
+        <label>Borrower's Name *</label>
+        <input type="text" id="lendName" placeholder="Who is borrowing this book?">
+      </div>
+      <div class="form-group">
+        <label>Date Lent</label>
+        <input type="date" id="lendDate">
+      </div>
+      <div class="form-group">
+        <label>Expected Return</label>
+        <input type="date" id="lendReturn">
+      </div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('lendModal')">Cancel</button>
+        <button class="btn-save" onclick="confirmLend()">Confirm Lend</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+
+ 
+
+</body>
+
+</html>
